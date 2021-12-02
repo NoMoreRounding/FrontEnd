@@ -1,0 +1,551 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="회원가입"
+            android:textSize="32sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="35dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="아이디"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/id_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/text_inputbox"
+                    android:hint="영문, 숫자 포함 및 3~15자"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/id_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="bottom"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:text="아이디를 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="5dp"
+                android:text="비밀번호"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/pwd_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/text_inputbox"
+                    android:hint="영문, 숫자, 특수기호 포함 및 8~20자"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/pwd_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:gravity="bottom"
+                android:text="비밀번호를 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="5dp"
+                android:text="비밀번호 확인"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                app:passwordToggleEnabled="true">
+
+                <EditText
+                    android:id="@+id/repwd_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/text_inputbox"
+                    android:hint="비밀번호 재입력"
+                    android:inputType="textPassword"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/repwd_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:gravity="bottom"
+                android:text="비밀번호를 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="이름"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/name_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/text_inputbox"
+                    android:hint="ex) 홍길동"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/name_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:gravity="bottom"
+                android:text="이름을 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="생년월일"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <EditText
+                android:id="@+id/birth_edittext"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:background="@drawable/text_inputbox"
+                android:focusable="false"
+                android:gravity="left|center"
+                android:layout_marginTop="15dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="5dp"
+                android:text="클릭하여 생년월일 입력"
+                android:textColor="@color/gray"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/birth_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:gravity="bottom"
+                android:text="생년월일을 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <TextView
+            android:text="성별"
+            android:textSize="18sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:layout_marginLeft="35dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+                android:layout_marginLeft="30dp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="남성"
+                android:buttonTint="@color/white"
+                android:id="@+id/rg_btn1"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+            <RadioButton
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:text="여성"
+                android:buttonTint="@color/white"
+                android:id="@+id/rg_btn2"
+                android:layout_width="80dp"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/sex_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="bottom"
+                android:text="성별을 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible"/>
+        </RadioGroup>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="이메일"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/email_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/text_inputbox"
+                    android:hint="ex) rudthxhs@dankook.ac.kr"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/email_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:gravity="bottom"
+                android:text="생년월일을 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:text="차량번호"
+                android:textSize="18sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginLeft="35dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="15dp">
+
+                <EditText
+                    android:id="@+id/carnum_edittext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:background="@drawable/text_inputbox"
+                    android:hint="ex) 12가1234"
+                    android:layout_gravity="center"
+                    android:paddingStart="10dp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/carnum_fail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="38dp"
+                android:layout_marginTop="1dp"
+                android:gravity="bottom"
+                android:text="차량번호를 입력해주세요"
+                android:textColor="@color/red"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:visibility="invisible" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="30dp"
+                    android:text="전기차 여부"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/electric_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="15dp"
+                    android:minHeight="48dp"
+                    android:thumb="@drawable/switch_thumb"
+                    android:track="@drawable/switch_track_selector" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="30dp"
+                    android:text="경차 여부"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/compact_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="15dp"
+                    android:minHeight="48dp"
+                    android:thumb="@drawable/switch_thumb"
+                    android:track="@drawable/switch_track_selector" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp">
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="30dp"
+                    android:text="임산부 차량 여부"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/pregnant_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="15dp"
+                    android:minHeight="48dp"
+                    android:thumb="@drawable/switch_thumb"
+                    android:track="@drawable/switch_track_selector" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="200dp"
+                android:layout_height="100dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="30dp"
+                    android:text="장애인 차량 여부"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <Switch
+                    android:id="@+id/disabled_switch"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="35dp"
+                    android:layout_marginTop="15dp"
+                    android:minHeight="48dp"
+                    android:thumb="@drawable/switch_thumb"
+                    android:track="@drawable/switch_track_selector" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/signup_fail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/red"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/btn_signup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="100dp"
+            android:layout_marginLeft="27dp"
+            android:layout_marginRight="27dp"
+            android:background="@drawable/solid_button"
+            android:text="가입하기"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+</ScrollView>
