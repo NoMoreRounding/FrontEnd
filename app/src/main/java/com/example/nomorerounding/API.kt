@@ -1,9 +1,6 @@
 package com.example.nomorerounding
 
-import com.example.nomorerounding.model.LotResponseDTO
-import com.example.nomorerounding.model.SignInRequestDTO
-import com.example.nomorerounding.model.UserResponseDTO
-import com.example.nomorerounding.model.SignUpRequestDTO
+import com.example.nomorerounding.model.*
 import retrofit2.Call
 import retrofit2.http.*
 
@@ -19,5 +16,11 @@ interface API {
 
     @GET("/api/parking/search/{floor}")
     fun getParkingLot(@Path("floor") floor: String , @Header("Authorization") auth: String): Call<LotResponseDTO>
+
+    @GET("/api/user/findId/{email}")
+    fun findLoginId(@Path("email") email: String): Call<StringResponseDTO>
+
+    @POST("/api/user/reset")
+    fun resetPassword(@Body resetRequest : ResetRequestDTO): Call<ResetRequestDTO>
 }
 
