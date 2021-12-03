@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -17,11 +18,13 @@ import com.example.nomorerounding.model.UserResponseDTO
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import kotlin.concurrent.thread
 
 class PMC5Activity : AppCompatActivity() {
     private var binding: Pmc5Binding? = null
     private var user: UserResponseDTO? = null
     private var parkLocation: String? = null
+    private var isParked : Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,17 +38,50 @@ class PMC5Activity : AppCompatActivity() {
         val intent: Intent = intent
         user = intent.getParcelableExtra("user") // 로그인 유저 정보 받아오기
 
+        val timerTextView = findViewById<TextView>(R.id.user_parking_time)
+
         if (user != null) {
             setUserDock()
             setParkingLot() // search 후 색깔 칠하는것까지 다 해주는거
-         // 유저정보 있으면 출력
+            // 유저정보 있으면 출력
+
+            Thread {
+                var i = 0
+
+                var min = i
+                var sec = i
+                var mformat : String = ""
+                var sformat : String = ""
+
+                while(true) {
+
+                    runOnUiThread {
+                        min = i / 60
+                        sec = i % 60
+
+                        if (sec < 10)
+                            sformat = "0"
+                        else
+                            sformat = ""
+
+                        if (min < 10)
+                            mformat = "0"
+                        else
+                            mformat = ""
+
+                        timerTextView.setText(mformat + min.toString() + ":" + sformat + sec.toString())
+                    }
+
+                    setParkingLot()
+
+                    Thread.sleep(1000)
+
+                    if (isParked) {
+                        i++
+                    }
+                }
+            }.start()
         }
-
-
-
-
-
-
     }
 
     private fun setUserDock() {
@@ -136,6 +172,8 @@ class PMC5Activity : AppCompatActivity() {
 
                 }
                 else{ // 주차된 차량이랑 내 usdid가 같은 경우 == 내 차 주차됨
+                    isParked = true
+
                     relativeArray[i.spaceColumn!!.times(6) + i.spaceRow!!].setBackgroundColor(Color.parseColor("#FEBE49"))
 
                     if(i.spaceColumn == 0){
