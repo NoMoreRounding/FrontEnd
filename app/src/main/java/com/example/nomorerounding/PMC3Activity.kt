@@ -47,7 +47,7 @@ class PMC3Activity : AppCompatActivity() {
             val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, day ->
                 binding!!.birthEdittext.setText("%d-%02d-%02d".format(year, month + 1, day))
             }
-            DatePickerDialog(this, dateSetListener, year, month, day).show()
+            DatePickerDialog(this, R.style.DialogTheme, dateSetListener, year, month, day).show()
         }
 
         binding!!.electricSwitch.setOnCheckedChangeListener { buttonView, isChecked -> // 전기차 스위치 리스너
