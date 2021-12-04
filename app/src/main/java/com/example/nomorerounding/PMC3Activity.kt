@@ -7,9 +7,9 @@ import android.os.Bundle
 import android.text.TextUtils
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.ContextCompat
 import com.example.nomorerounding.User.server
 import com.example.nomorerounding.databinding.Pmc3Binding
-import com.example.nomorerounding.databinding.Pmc4Binding
 import retrofit2.*
 import com.example.nomorerounding.model.UserResponseDTO
 import com.example.nomorerounding.model.SignUpRequestDTO
@@ -47,7 +47,13 @@ class PMC3Activity : AppCompatActivity() {
             val dateSetListener = DatePickerDialog.OnDateSetListener { view, year, month, day ->
                 binding!!.birthEdittext.setText("%d-%02d-%02d".format(year, month + 1, day))
             }
-            DatePickerDialog(this, R.style.DialogTheme, dateSetListener, year, month, day).show()
+            val datePickerDialog = DatePickerDialog(this, R.style.DialogTheme, dateSetListener, year, month, day)
+
+            val textColor = ContextCompat.getColor(this, R.color.design_default_color_primary_dark)
+
+            datePickerDialog.show()
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_POSITIVE).setTextColor(textColor)
+            datePickerDialog.getButton(DatePickerDialog.BUTTON_NEGATIVE).setTextColor(textColor)
         }
 
         binding!!.electricSwitch.setOnCheckedChangeListener { buttonView, isChecked -> // 전기차 스위치 리스너
