@@ -13,10 +13,10 @@
         android:theme="@style/Theme.NoMoreRounding"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".PMC4Activity"
+            android:name=".PMC3Activity"
             android:exported="true" />
         <activity
-            android:name=".PMC3Activity"
+            android:name=".PMC4Activity"
             android:exported="false" />
         <activity
             android:name=".PMC2Activity"

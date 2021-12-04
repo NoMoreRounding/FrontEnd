@@ -3,11 +3,8 @@ package com.example.nomorerounding
 import android.content.Intent
 import android.os.Bundle
 import android.text.TextUtils
-import android.util.Log
 import android.view.View
 import android.widget.EditText
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import com.example.nomorerounding.databinding.Pmc2Binding
 import retrofit2.Call
@@ -34,7 +31,7 @@ class PMC2Activity : AppCompatActivity() {
         val ID: EditText = findViewById(R.id.textInputEditText_id)
         val PASSWORD: EditText = findViewById(R.id.textInputEditText_password)
 
-        val intentPMC3 = Intent(this, PMC3Activity::class.java)
+        val intentPMC3 = Intent(this, PMC4Activity::class.java)
         val intentPMC5 = Intent(this, PMC5Activity::class.java)
 
 
